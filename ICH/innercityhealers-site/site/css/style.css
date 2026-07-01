@@ -347,3 +347,12 @@
   flex-direction:column; background:var(--cream); padding:20px 32px; gap:20px;
   border-bottom:1px solid var(--line);
 }
+.hero{
+  position:relative;
+  background:
+    linear-gradient(180deg, rgba(21,32,27,0.90) 0%, rgba(21,32,27,0.80) 45%, rgba(21,32,27,0.94) 100%),
+    url('../images/go-karting.jpg') center 30%/cover no-repeat;
+  color:var(--cream);
+  overflow:hidden;
+  padding:100px 0 0;
+}
