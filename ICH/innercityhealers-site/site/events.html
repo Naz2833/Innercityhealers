@@ -14,18 +14,16 @@
 <header>
   <nav>
     <a href="index.html" class="brand">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M2 20L9 8L13 14L17 6L24 20" stroke="#A85A2C" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>
+      <img src="images/logo.jpg" alt="Inner City Healers logo" style="height:42px; width:auto;">
       INNER CITY HEALERS
     </a>
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="events.html" class="active">Events</a>
-      <a href="gallery.html">Gallery</a>
       <a href="testimonials.html">Testimonials</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">Join Us</a>
     </div>
-    <div class="navcta"><a href="contact.html" class="btn" style="padding:10px 20px; font-size:13px;">Join Us</a></div>
     <button class="menu-toggle" aria-label="Menu">
       <svg width="22" height="16" viewBox="0 0 22 16"><rect width="22" height="2" fill="#1A211C"/><rect y="7" width="22" height="2" fill="#1A211C"/><rect y="14" width="22" height="2" fill="#1A211C"/></svg>
     </button>
@@ -41,8 +39,8 @@
   </svg>
   <div class="page-hero-inner">
     <div class="crumb"><a href="index.html">Home</a><span>/</span>Events</div>
-    <h1>Upcoming events</h1>
-    <p class="lede">Open to everyone. All abilities welcome. Check back regularly for new sessions.</p>
+    <h1>Previous events</h1>
+    <p class="lede">A look back at what we've done together &mdash; and a taste of what's to come. Open to everyone, all abilities welcome.</p>
   </div>
 </section>
 
@@ -91,6 +89,33 @@
       </div>
     </div>
     <div class="events-foot">Open to everyone. All are welcome.</div>
+  </div>
+</section>
+
+<section class="gallery-slideshow">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Gallery</h2>
+      <p class="desc">Moments from our walks, hikes, camping trips and more.</p>
+    </div>
+    <div class="slideshow" id="slideshow">
+      <div class="slide active"><img src="images/peak-summit-group.jpg" alt="Group celebrating on top of a Peak District summit"></div>
+      <div class="slide"><img src="images/sunny-hilltop-group.jpg" alt="Large group sitting together on a sunny hilltop"></div>
+      <div class="slide"><img src="images/rocky-outcrop-cheering.jpg" alt="Group cheering on a rocky outcrop overlooking the valley"></div>
+      <div class="slide"><img src="images/boulders-group.jpg" alt="Group climbing and sitting on large boulders"></div>
+      <div class="slide"><img src="images/outdoor-football.jpg" alt="Football team group photo on the pitch"></div>
+      <div class="slide"><img src="images/go-karting.jpg" alt="Group in racing suits after a go-karting session"></div>
+      <div class="slide"><img src="images/forest-bike-ride.jpg" alt="Group with bikes stopped in the forest"></div>
+      <div class="slide"><img src="images/moorland-clifftop-group.jpg" alt="Large group standing on a clifftop under a cloudy sky"></div>
+
+      <button class="slide-arrow prev" id="slidePrev" aria-label="Previous photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="slide-arrow next" id="slideNext" aria-label="Next photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="slide-counter"><span id="slideCurrent">1</span> / <span id="slideTotal">8</span></div>
+    </div>
   </div>
 </section>
 <footer>
