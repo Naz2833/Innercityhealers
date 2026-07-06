@@ -50,3 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowRight') show(index + 1);
   });
 });
+
+// quote sliders (member + council) — manual arrows, multiple per page
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.quote-slider').forEach(slider => {
+    const slides = slider.querySelectorAll('.qs-slide');
+    if (!slides.length) return;
+    const prev = slider.querySelector('.qs-prev');
+    const next = slider.querySelector('.qs-next');
+    const current = slider.querySelector('.qs-current');
+    const total = slider.querySelector('.qs-total');
+    let i = 0;
+
+    if (total) total.textContent = slides.length;
+
+    function show(n) {
+      slides[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+      if (current) current.textContent = i + 1;
+    }
+
+    if (prev) prev.addEventListener('click', () => show(i - 1));
+    if (next) next.addEventListener('click', () => show(i + 1));
+  });
+});
