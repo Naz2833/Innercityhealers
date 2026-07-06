@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelector('.navlinks');
   if (toggle && links) {
     toggle.addEventListener('click', () => links.classList.toggle('open'));
+    // close the menu when any link is tapped
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
   }
 
   // contact form (front-end only — wire up to a backend / mailto / form service)
@@ -52,51 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // quote sliders (member + council) — manual arrows, multiple per page
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.quote-slider').forEach(slider => {
-    const slides = slider.querySelectorAll('.qs-slide');
-    if (!slides.length) return;
-    const prev = slider.querySelector('.qs-prev');
-    const next = slider.querySelector('.qs-next');
-    const current = slider.querySelector('.qs-current');
-    const total = slider.querySelector('.qs-total');
-    let i = 0;
-
-    if (total) total.textContent = slides.length;
-
-    function show(n) {
-      slides[i].classList.remove('active');
-      i = (n + slides.length) % slides.length;
-      slides[i].classList.add('active');
-      if (current) current.textContent = i + 1;
-    }
-
-    if (prev) prev.addEventListener('click', () => show(i - 1));
-    if (next) next.addEventListener('click', () => show(i + 1));
-  });
-});
+// (currently unused: testimonials display as a stacked list, not a slider)
 
 // activity card slider (manual arrows) — events page
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('#activitySlider .acard-track');
-  if (!track) return;
-
-  const slides = track.querySelectorAll('.acard-slide');
-  const prevBtn = document.getElementById('acardPrev');
-  const nextBtn = document.getElementById('acardNext');
-  const currentEl = document.getElementById('acardCurrent');
-  const totalEl = document.getElementById('acardTotal');
-  let i = 0;
-
-  if (totalEl) totalEl.textContent = slides.length;
-
-  function show(n) {
-    slides[i].classList.remove('active');
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('active');
-    if (currentEl) currentEl.textContent = i + 1;
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', () => show(i - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => show(i + 1));
-});
+// (currently unused: activity cards display as a static side-by-side grid)
