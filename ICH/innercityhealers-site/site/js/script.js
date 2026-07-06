@@ -75,3 +75,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (next) next.addEventListener('click', () => show(i + 1));
   });
 });
+
+// activity card slider (manual arrows) — events page
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('#activitySlider .acard-track');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.acard-slide');
+  const prevBtn = document.getElementById('acardPrev');
+  const nextBtn = document.getElementById('acardNext');
+  const currentEl = document.getElementById('acardCurrent');
+  const totalEl = document.getElementById('acardTotal');
+  let i = 0;
+
+  if (totalEl) totalEl.textContent = slides.length;
+
+  function show(n) {
+    slides[i].classList.remove('active');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('active');
+    if (currentEl) currentEl.textContent = i + 1;
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => show(i - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => show(i + 1));
+});
