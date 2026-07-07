@@ -10,8 +10,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // contact form (front-end only — wire up to a backend / mailto / form service)
-  getElementById
+  // contact form — submits to Formspree (real email delivery)
+  const form = document.getElementById('joinForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      const original = btn.textContent;
+      const formData = new FormData(this);
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(response => {
+          if (response.ok) {
+            btn.textContent = 'Message sent ✓';
+            this.reset();
+          } else {
+            btn.textContent = 'Something went wrong — try again';
+          }
+        })
+        .catch(() => {
+          btn.textContent = 'Something went wrong — try again';
+        })
+        .finally(() => {
+          btn.disabled = false;
+          setTimeout(() => (btn.textContent = original), 3000);
+        });
+    });
+  }
+});
 
 // gallery slideshow (manual arrows)
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,11 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// quote sliders (member + council) — manual arrows, multiple per page
-// (currently unused: testimonials display as a stacked list, not a slider)
-
-// activity card slider (manual arrows) — events page
-// (currently unused: activity cards display as a static side-by-side grid)
 // member quote slider (manual arrows) — testimonials page
 document.addEventListener('DOMContentLoaded', () => {
   const slider = document.getElementById('memberSlider');
@@ -73,3 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener('click', () => show(i - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => show(i + 1));
 });
+
+// activity card slider (manual arrows) — events page
+// (currently unused: activity cards display as a static side-by-side grid)
