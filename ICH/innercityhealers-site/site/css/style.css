@@ -659,6 +659,7 @@
 }
 
 /* ===== ACTIVITY CARD TIKTOK EMBEDS ===== */
+/* ===== ACTIVITY CARD TIKTOK EMBEDS ===== */
 .acard-video{
   aspect-ratio:4/3; overflow:hidden; background:var(--stone-deep);
   position:relative;
@@ -666,5 +667,15 @@
 .acard-video .tiktok-embed{
   margin:0 !important; max-width:100% !important; min-width:0 !important;
   width:100% !important; height:100% !important;
+}
+.acard-video .tiktok-embed section{
+  width:100% !important; height:100% !important; margin:0 !important; padding:0 !important;
+  display:block !important;
+}
+.acard-video .tiktok-embed section a{
+  display:block !important; width:100% !important; height:100% !important;
+}
+.acard-video .tiktok-embed img{
+  display:block !important; width:100% !important; height:100% !important; object-fit:cover !important;
 }
 .acard-video iframe{width:100% !important; height:100% !important;}
