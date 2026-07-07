@@ -11,18 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // contact form (front-end only — wire up to a backend / mailto / form service)
-  const form = document.getElementById('joinForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const btn = this.querySelector('button');
-      const original = btn.textContent;
-      btn.textContent = 'Message sent ✓';
-      this.reset();
-      setTimeout(() => (btn.textContent = original), 2500);
-    });
-  }
-});
+  getElementById
 
 // gallery slideshow (manual arrows)
 document.addEventListener('DOMContentLoaded', () => {
