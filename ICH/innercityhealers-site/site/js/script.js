@@ -60,3 +60,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // activity card slider (manual arrows) — events page
 // (currently unused: activity cards display as a static side-by-side grid)
+// member quote slider (manual arrows) — testimonials page
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('memberSlider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.qs-slide');
+  const prevBtn = slider.querySelector('.qs-prev');
+  const nextBtn = slider.querySelector('.qs-next');
+  const currentEl = slider.querySelector('.qs-current');
+  const totalEl = slider.querySelector('.qs-total');
+  let i = 0;
+
+  if (totalEl) totalEl.textContent = slides.length;
+
+  function show(n) {
+    slides[i].classList.remove('active');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('active');
+    if (currentEl) currentEl.textContent = i + 1;
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => show(i - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => show(i + 1));
+});
