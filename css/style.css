@@ -709,3 +709,17 @@
 @media(max-width:600px){
   .back-to-top{width:42px; height:42px; bottom:20px; right:20px;}
 }
+
+/* ===== POLICY / LEGAL PAGES ===== */
+.policy{background:var(--cream);}
+.policy-body{max-width:760px;}
+.policy-body h2{font-size:26px; margin-top:44px; margin-bottom:16px;}
+.policy-body h2:first-child{margin-top:0;}
+.policy-body p{font-size:15.5px; line-height:1.75; color:rgba(26,33,28,0.78); margin-bottom:16px;}
+.policy-body ul{margin:0 0 16px; padding-left:22px;}
+.policy-body ul li{font-size:15.5px; line-height:1.7; color:rgba(26,33,28,0.78); margin-bottom:8px;}
+.policy-body .updated{
+  font-family:'Space Mono',monospace; font-size:12.5px; color:rgba(26,33,28,0.5);
+  margin-bottom:40px; letter-spacing:0.03em;
+}
+.policy-body a{color:var(--rust); text-decoration:underline;}
