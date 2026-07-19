@@ -125,3 +125,31 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
+
+// cookie notice banner (auto-injected on every page)
+document.addEventListener('DOMContentLoaded', () => {
+  const choice = localStorage.getItem('ich_cookie_choice');
+  if (choice) return; // already accepted or declined, don't show again
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = `
+    <p>We don't use cookies or tracking on this site right now &mdash; but if that changes, we'll ask again. Read our <a href="cookies.html">Cookie Policy</a> for details.</p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-accept">Accept</button>
+      <button class="cookie-decline">Decline</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  requestAnimationFrame(() => banner.classList.add('show'));
+
+  function dismiss(choiceValue) {
+    localStorage.setItem('ich_cookie_choice', choiceValue);
+    banner.classList.remove('show');
+    setTimeout(() => banner.remove(), 300);
+  }
+
+  banner.querySelector('.cookie-accept').addEventListener('click', () => dismiss('accepted'));
+  banner.querySelector('.cookie-decline').addEventListener('click', () => dismiss('declined'));
+});
